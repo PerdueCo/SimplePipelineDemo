@@ -277,3 +277,14 @@ C --> D[Middleware: Routing]
 D --> E[Endpoint: ProductsController]
 E --> F[Service Layer - ProductService]
 F --> G[Return JSON Response]
+
+```
+flowchart LR
+A[HTTP Request /api/products/1] --> B[Middleware: ExceptionHandler]
+B --> C[Middleware: HTTPS Redirection]
+C --> D[Middleware: Routing]
+D --> E[Endpoint: ProductsController]
+E --> F[Service Layer - ProductService]
+F --> G[Return JSON Response]
+
+```
