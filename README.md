@@ -228,9 +228,52 @@ docker run -p 8080:8080 simplepipeline-demo
 
 ## **API now accessible at:**
 ```bash
-[docker run -p 8080:8080 simplepipeline-demo](http://localhost:8080/api/products/123
-)
+http://localhost:8080/api/products/123
+```
+# ⚙️ 6. GitHub Actions CI
+##  **Create folder:**
+```bash
+.github/workflows/ci.yml
 
+```
+## **Paste:**
+```yaml
+name: Build .NET API
 
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
 
+jobs:
+  build:
+    runs-on: ubuntu-latest
 
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: 8.0.x
+
+    - name: Restore dependencies
+      run: dotnet restore
+
+    - name: Build
+      run: dotnet build --configuration Release --no-restore
+
+    - name: Publish
+      run: dotnet publish --configuration Release --no-restore --output build
+
+```
+# 🧠 7. How the Pipeline Works
+```mermaid
+flowchart LR
+A[HTTP Request /api/products/1] --> B[Middleware: ExceptionHandler]
+B --> C[Middleware: HTTPS Redirection]
+C --> D[Middleware: Routing]
+D --> E[Endpoint: ProductsController]
+E --> F[Service Layer - ProductService]
+F --> G[Return JSON Response]
