@@ -279,6 +279,7 @@ E --> F[Service Layer - ProductService]
 F --> G[Return JSON Response]
 
 ```
+```
 flowchart LR
 
 A[HTTP Request /api/products/1] --> B[Middleware: ExceptionHandler]
@@ -287,5 +288,38 @@ C --> D[Middleware: Routing]
 D --> E[Endpoint: ProductsController]
 E --> F[Service Layer - ProductService]
 F --> G[Return JSON Response]
+
+
+```
+
+# 📝 8. High-Level Explanation
+
+```
+A request enters ASP.NET Core and passes through several middleware components.
+Each component can modify the request or response.
+```
+1. **ExceptionHandler** catches errors  
+2. **HTTPS Redirection** forces secure traffic
+3. **Routing** matches /api/products/1
+4. **Endpoint** executes ProductsController.GetProduct()
+5. Controller uses **IProductService**
+6. Returned model is serialized into JSON
+7. Routing matches /api/products/1
+
+This project demonstrates that entire lifecycle clearly and simply.
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ```
