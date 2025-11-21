@@ -25,7 +25,7 @@ Use this project to demonstrate your understanding of:
 
 ## 📁 Project Structure
 
-```  
+```
 SimplePipelineDemo/
 ├── Controllers/
 │ └── ProductsController.cs
@@ -38,17 +38,4 @@ SimplePipelineDemo/
 ├── Dockerfile
 ├── README.md
 └── .github/workflows/ci.yml
----
-SimplePipelineDemo/
-├── Controllers/
-│ └── ProductsController.cs
-├── Services/
-│ ├── IProductService.cs
-│ └── ProductService.cs
-├── Models/
-│ └── Product.cs
-├── Program.cs
-├── Dockerfile
-├── README.md
-└── .github/workflows/ci.yml
----
+```
