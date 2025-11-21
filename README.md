@@ -176,7 +176,61 @@ app.Run();
 
 1. Click Run ▶ (choose the project, not IIS Express)
 2. Swagger UI will open automatically:
+
+**Swagger open at:**
 ```bash
 https://localhost:{PORT}/swagger
+```
+**Test:**
+```bash
+GET /api/products/123
 
----
+```
+**You should see:**
+```bash
+{
+  "id": 1,
+  "name": "Headphones"
+}
+
+```
+# 🐳 5. Run Using Docker
+## 📌 **Dockerfile**
+```dockerfile
+# Build stage
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+WORKDIR /src
+
+COPY . .
+RUN dotnet restore
+RUN dotnet publish -c Release -o /app
+
+# Runtime stage
+FROM mcr.microsoft.com/dotnet/aspnet:8.0
+WORKDIR /app
+COPY --from=build /app .
+
+ENTRYPOINT ["dotnet", "SimplePipelineDemo.dll"]
+
+```
+## 📌 **Build & Run**
+## **Build image**
+```bash
+docker build -t simplepipeline-demo .
+
+```
+
+## **Run container**
+```bash
+docker run -p 8080:8080 simplepipeline-demo
+
+```
+
+## **API now accessible at:**
+```bash
+[docker run -p 8080:8080 simplepipeline-demo](http://localhost:8080/api/products/123
+)
+
+
+
+
