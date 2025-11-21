@@ -24,6 +24,8 @@ Use this project to demonstrate your understanding of:
 ---
 
 ## 📁 Project Structure
+
+```  
 SimplePipelineDemo/
 ├── Controllers/
 │ └── ProductsController.cs
