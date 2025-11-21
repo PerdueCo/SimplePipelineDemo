@@ -321,5 +321,3 @@ This project demonstrates that entire lifecycle clearly and simply.
 
 
 
-
-```
