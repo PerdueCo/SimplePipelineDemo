@@ -39,3 +39,49 @@ SimplePipelineDemo/
 ├── README.md
 └── .github/workflows/ci.yml
 ```
+
+---
+
+# 🚀 1. Create the Project (Visual Studio 2022)
+
+1. Open **Visual Studio 2022**  
+2. Click **Create a new project**  
+3. Search: **API** → select **ASP.NET Core Web API** → Next  
+4. Configure:
+   - **Project name:** `SimplePipelineDemo`
+   - **Framework:** `.NET 8.0`
+   - **Use Controllers:** ✔ Enabled  
+   - **OpenAPI/Swagger:** ✔ Enabled  
+5. Click **Create**
+
+---
+
+# 📂 2. Create Folders & Files
+
+### Create folders
+In **Solution Explorer**:
+
+- Right-click the project → **Add → New Folder** → `Models`
+- Add another folder → `Services`
+
+### Remove sample template file (optional)
+- Delete `WeatherForecastController.cs`
+
+### Create the files below:
+
+- `Models/Product.cs`
+- `Services/IProductService.cs`
+- `Services/ProductService.cs`
+- `Controllers/ProductsController.cs`
+
+---
+
+# 🧩 3. Paste the Code (Complete Source Files)
+
+## 📌 **Models/Product.cs**
+```csharp
+public class Product
+{
+    public int Id { get; set; }
+    public string Name { get; set; } = string.Empty;
+}
